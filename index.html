@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Na Maré · Gestão da sua casa de temporada</title>
+<meta name="description" content="Importe as reservas do Airbnb e do Booking e controle calendário, limpeza, preço, financeiro e o carnê-leão em um só lugar. R$ 69,90, pagamento único.">
+<meta property="og:title" content="Na Maré · sua casa de temporada sob controle">
+<meta property="og:description" content="Reservas, limpeza, preço, financeiro e carnê-leão em um só lugar. R$ 69,90, pagamento único.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#0C2B34;--mar:#17708A;--sol:#F5B02E;--areia:#F6F1E7;--ink:#12333E;--muted:#5B6F74;--line:#E3E9E6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--areia);line-height:1.55;font-size:16px}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.1}
+.kick{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--mar)}
+.btn{display:inline-block;background:var(--sol);color:#2D2100;font-weight:700;padding:16px 26px;border-radius:999px;text-decoration:none;font-size:16px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+header.hero{background:var(--deep);color:#EAF3F1;position:relative;overflow:hidden;padding:28px 0 90px}
+.hero nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px}
+.logo{font-family:'Playfair Display',serif;font-size:24px;color:#fff;font-weight:700}
+.logo span{color:var(--sol)}
+.hero .sol{position:absolute;right:8%;top:90px;width:180px;height:180px;border-radius:50%;background:var(--sol);opacity:.95}
+.hero .onda{position:absolute;left:-10%;right:-10%;bottom:-260px;height:380px;border-radius:50%;background:var(--mar)}
+.hero h1{font-size:clamp(38px,6vw,68px);color:#fff;max-width:760px;position:relative}
+.hero h1 i{color:var(--sol)}
+.hero p.lead{font-size:clamp(17px,2.2vw,20px);max-width:620px;margin:22px 0 32px;color:#CFE3E0;position:relative}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;position:relative}
+.hero small{display:block;margin-top:14px;color:#9FC3C2;position:relative}
+section{padding:72px 0}
+section h2{font-size:clamp(30px,4.2vw,44px);margin:10px 0 16px;color:var(--deep)}
+section p.sub{color:var(--muted);max-width:640px;font-size:17px}
+.grid{display:grid;gap:16px;margin-top:34px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:#fff;border-radius:22px;padding:24px;box-shadow:0 14px 40px rgba(12,43,52,.08)}
+.card .bar{width:40px;height:6px;border-radius:4px;background:var(--sol);margin-bottom:14px}
+.card h3{font-family:'Montserrat',sans-serif;font-size:18px;margin-bottom:6px;color:var(--deep)}
+.card p{color:var(--muted);font-size:15px}
+.passos{counter-reset:p;display:grid;gap:12px;margin-top:30px}
+.passo{display:flex;gap:18px;align-items:flex-start;background:#fff;border-radius:18px;padding:20px 22px}
+.passo b.n{font-family:'Playfair Display',serif;font-size:40px;line-height:1;color:var(--sol);min-width:32px}
+.passo h3{font-family:'Montserrat',sans-serif;font-size:17px;margin-bottom:2px}
+.passo p{color:var(--muted);font-size:15px}
+.imposto{background:var(--deep);color:#EAF3F1}
+.imposto h2{color:#fff}
+.imposto p.sub{color:#B9D4D0}
+.imp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:30px}
+.imp-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:22px}
+.imp-box h3{font-family:'Montserrat',sans-serif;font-size:16px;color:var(--sol);margin-bottom:8px}
+.imp-box li{margin:6px 0 6px 18px;color:#D6E7E4;font-size:15px}
+.fontes{margin-top:18px;font-size:13px;color:#9FC3C2}
+.fontes a{color:#CFE3E0}
+.nao{background:#fff}
+.nao ul{margin-top:24px;display:grid;gap:12px}
+.nao li{list-style:none;padding:16px 18px;border-radius:14px;background:var(--areia);font-size:15.5px}
+.nao li b{color:var(--deep)}
+.preco{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:34px;align-items:stretch}
+.plano{background:#fff;border-radius:24px;padding:28px;border:2px solid var(--line);display:flex;flex-direction:column}
+.plano.dest{background:var(--sol);border-color:var(--sol);color:#2D2100}
+.plano .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.plano .valor{font-family:'Playfair Display',serif;font-size:56px;line-height:1;margin:14px 0 4px}
+.plano ul{margin:18px 0 22px 18px;flex:1}
+.plano li{margin:6px 0;font-size:15px}
+.plano .btn{background:var(--deep);color:#fff;text-align:center}
+.plano.off{opacity:.75}
+.garantia{display:flex;gap:22px;align-items:center;background:#fff;border-radius:22px;padding:26px;margin-top:22px}
+.selo{min-width:96px;height:96px;border-radius:50%;background:var(--deep);color:var(--sol);display:grid;place-items:center;text-align:center;font-weight:700;font-size:13px;line-height:1.2}
+.selo b{font-family:'Playfair Display',serif;font-size:34px;display:block}
+details{background:#fff;border-radius:16px;padding:18px 20px;margin-top:10px}
+summary{font-weight:700;cursor:pointer;color:var(--deep)}
+details p{margin-top:10px;color:var(--muted);font-size:15px}
+footer{background:var(--deep);color:#9FC3C2;padding:40px 0;font-size:13px}
+footer .logo{font-size:20px;margin-bottom:8px}
+.final{text-align:center}
+.final h2{margin-bottom:12px}
+@media(max-width:640px){section{padding:54px 0}.hero{padding-bottom:70px}.hero .sol{width:110px;height:110px;top:70px;right:6%}.garantia{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<!-- Troque o link abaixo pelo link de checkout da Kiwify antes de publicar -->
+<script>window.KIWIFY='#comprar';</script>
+
+<header class="hero">
+  <div class="sol"></div><div class="onda"></div>
+  <div class="wrap">
+    <nav><div class="logo">na <span>maré</span></div><a class="btn ghost" href="#planos" style="padding:10px 18px;font-size:14px">Comprar</a></nav>
+    <h1>Sua casa de temporada, <i>sob controle.</i></h1>
+    <p class="lead">Você aluga pelo Airbnb e pelo Booking. O Na Maré junta reservas, limpeza, preço, financeiro e o carnê-leão em um só lugar, sem planilha e sem instalar nada.</p>
+    <div class="ctas"><a class="btn js-comprar" href="#planos">Quero o Na Maré · R$ 69,90</a><a class="btn ghost" href="#como">Ver como funciona</a></div>
+    <small>Pagamento único · sem mensalidade · garantia de 7 dias</small>
+  </div>
+</header>
+
+<section id="faz">
+  <div class="wrap">
+    <div class="kick">O que o Na Maré faz</div>
+    <h2>Tudo da sua temporada, numa tela só</h2>
+    <p class="sub">Criado por quem é formado em contabilidade e está montando a própria casa de temporada no litoral de São Paulo.</p>
+    <div class="grid g3">
+      <div class="card"><div class="bar"></div><h3>Importa suas reservas</h3><p>Arquivo de reservas do Airbnb e do Booking, ou o calendário (.ics). Detecta duplicadas e canceladas antes de importar.</p></div>
+      <div class="card"><div class="bar"></div><h3>Calendário e limpeza</h3><p>Ocupação do mês, viradas entre hóspedes, checklist de reposição e quem faz a faxina.</p></div>
+      <div class="card"><div class="bar"></div><h3>Preço certo</h3><p>Tarifário por temporada e feriados, simulador do ano e cálculo do que a taxa do Airbnb tira de você.</p></div>
+      <div class="card"><div class="bar"></div><h3>Financeiro de verdade</h3><p>Receita, comissões, despesas e o resultado do mês e do ano. Relatório em PDF para dividir com o sócio ou o cônjuge.</p></div>
+      <div class="card"><div class="bar"></div><h3>Carnê-leão sem susto</h3><p>Estimativa do imposto de cada mês, data do DARF e o arquivo pronto para importar no Carnê-Leão Web da Receita.</p></div>
+      <div class="card"><div class="bar"></div><h3>Raio X do anúncio</h3><p>Nota de 0 a 100 e a lista do que ajustar primeiro para receber mais reservas.</p></div>
+      <div class="card"><div class="bar"></div><h3>Guia do hóspede</h3><p>Em português, inglês e espanhol, com o nome de quem chega, mais mensagens prontas do check-in ao check-out.</p></div>
+      <div class="card"><div class="bar"></div><h3>Placas com QR code</h3><p>Wi-Fi que conecta pela câmera, regras da casa, check-out, contatos de emergência. Imprime em A4.</p></div>
+      <div class="card"><div class="bar"></div><h3>Prontidão para anunciar</h3><p>36 itens em 6 etapas, com placar de 0 a 100 e travas no que não pode faltar antes de abrir a agenda.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="como" style="padding-top:0">
+  <div class="wrap">
+    <div class="kick">Como começar</div>
+    <h2>Em 15 minutos, sem instalar nada</h2>
+    <div class="passos">
+      <div class="passo"><b class="n">1</b><div><h3>Abra o arquivo</h3><p>No computador ou no celular, direto no navegador.</p></div></div>
+      <div class="passo"><b class="n">2</b><div><h3>Cadastre a sua casa</h3><p>Nome, cidade, condomínio, IPTU e as comissões de cada canal.</p></div></div>
+      <div class="passo"><b class="n">3</b><div><h3>Importe as reservas</h3><p>Baixe o arquivo no Airbnb e importe. Você confere tudo antes de confirmar.</p></div></div>
+      <div class="passo"><b class="n">4</b><div><h3>Acompanhe o mês</h3><p>Painel, limpeza, preço e o carnê-leão do mês já calculados.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="imposto">
+  <div class="wrap">
+    <div class="kick" style="color:var(--sol)">Imposto, com fonte</div>
+    <h2>O carnê-leão segue as regras da Receita Federal</h2>
+    <p class="sub">Cada regra do cálculo vem de uma página oficial da Receita ou do texto da lei, e o app mostra a fonte ao lado.</p>
+    <div class="imp-grid">
+      <div class="imp-box"><h3>O que o cálculo considera</h3><ul>
+        <li>Tabela mensal de 2026 e a redução da Lei 15.270/2025 (isenção até R$ 5 mil por mês)</li>
+        <li>Desconto simplificado mensal ou deduções legais, o que for maior</li>
+        <li>Exclusões do aluguel: comissão da plataforma, condomínio, IPTU e taxa de lixo</li>
+        <li>Sobra de despesas levada para os meses seguintes do mesmo ano e do mesmo imóvel</li>
+        <li>Mês do recebimento, DARF 0190, último dia útil do mês seguinte e o mínimo de R$ 10</li>
+      </ul></div>
+      <div class="imp-box"><h3>Conferido antes do lançamento</h3><ul>
+        <li>Os 5 exemplos oficiais da Receita para a Lei 15.270/2025 batem centavo por centavo</li>
+        <li>20 mil cenários recalculados por uma conta independente, sem divergência</li>
+        <li>Arquivo no formato oficial de escrituração do Carnê-Leão Web</li>
+        <li>Imóvel do casal: divide a renda e mostra o imposto de cada um</li>
+      </ul></div>
+    </div>
+    <p class="fontes">Fontes: <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026" target="_blank" rel="noopener">tabelas 2026</a> · <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025" target="_blank" rel="noopener">exemplos da Lei 15.270</a> · <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/carne-leao/pagar" target="_blank" rel="noopener">como pagar o carnê-leão</a> · <a href="https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/carne-leao/rendimentos" target="_blank" rel="noopener">rendimentos de aluguel</a> · <a href="http://normas.receita.fazenda.gov.br/sijut2consulta/link.action?idAto=99742" target="_blank" rel="noopener">Solução de Consulta Cosit 116/2019</a>.<br>O valor oficial do DARF é sempre o do Carnê-Leão Web. O Na Maré não substitui um contador.</p>
+  </div>
+</section>
+
+<section class="nao">
+  <div class="wrap">
+    <div class="kick">Sem enrolação</div>
+    <h2>O que o Na Maré não faz</h2>
+    <p style="margin-bottom:14px">Para você não comprar algo que não existe. É um arquivo que roda no seu navegador, e isso tem limites:</p>
+    <ul>
+      <li><b>Não sincroniza a agenda do Airbnb sozinho.</b> Isso exige um servidor (o navegador bloqueia essa leitura num arquivo local). Aqui você importa o arquivo de reservas ou o calendário .ics quando quiser. Só a versão na nuvem, futura, resolveria.</li>
+      <li><b>Não une celular e computador.</b> Os dados ficam no navegador de cada aparelho, sem sincronização. Para trocar de aparelho, exporte e importe o backup.</li>
+      <li><b>Não cobra nem libera por assinatura, e não controla cópias.</b> A compra e a mensalidade opcional passam pela plataforma de pagamento. O arquivo não verifica pagamento.</li>
+      <li><b>Não se conecta sozinho ao Airbnb.</b> Você baixa o relatório de ganhos e importa. O importador foi testado com arquivos de exemplo, ainda não com um relatório real do Airbnb; se o formato diferir, você associa as colunas.</li>
+      <li><b>O Raio X por link depende de um serviço gratuito de terceiros</b> (leitor público de páginas). Pode ter limite de uso, falhar ou ser bloqueado pelo Airbnb, e não lê o calendário. Nesses casos há o favorito (Chrome/Edge do computador) e o texto colado, com menos dados.</li>
+      <li><b>Dados no navegador.</b> Limpar os dados do navegador apaga tudo. Backup automático em arquivo só no Chrome e Edge do computador.</li>
+      <li><b>Não é contador.</b> O imposto é estimativa. Confira no Carnê-Leão Web; em casos maiores (vários imóveis, empresa, holding), fale com seu contador.</li>
+      <li><b>Sem atualizações, as regras são as da data da compra</b> (IR 2026).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="planos">
+  <div class="wrap">
+    <div class="kick">Planos</div>
+    <h2>Um preço, sem mensalidade</h2>
+    <p class="sub">Pague uma vez e use. Atualizações e ajustes são opcionais, só se você quiser.</p>
+    <div class="preco">
+      <div class="plano dest">
+        <div class="tag">Na Maré · acesso completo</div>
+        <div class="valor">R$ 69,90</div><div>pagamento único</div>
+        <ul>
+          <li>O Na Maré completo, sem mensalidade</li>
+          <li>Importa o relatório do Airbnb e do Booking</li>
+          <li>Guia "Comece aqui" em PDF</li>
+          <li>Suporte por mensagem para dúvidas de uso</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        <a class="btn js-comprar" href="#comprar">Quero o Na Maré</a>
+      </div>
+      <div class="plano off">
+        <div class="tag">Opcional</div>
+        <div class="valor" style="font-size:40px">R$ 15,90<span style="font-size:18px">/mês</span></div><div>atualizações e ajustes</div>
+        <ul>
+          <li>Novas versões do app quando saírem</li>
+          <li>Tabela do imposto atualizada a cada ano (a de 2027 em janeiro)</li>
+          <li>Cancele quando quiser; o app que você tem continua funcionando</li>
+        </ul>
+        <a class="btn js-comprar" href="#comprar" style="background:var(--deep);color:#fff">Quero as atualizações</a>
+      </div>
+    </div>
+    <div class="garantia">
+      <div class="selo"><div><b>7</b>dias</div></div>
+      <div><h3 style="font-family:'Montserrat',sans-serif;font-size:19px;margin-bottom:6px">Garantia de 7 dias</h3><p style="color:var(--muted)">Use com as suas reservas. Se não servir para você, peça o reembolso em até 7 dias pela própria Kiwify e recebe o valor integral (Código de Defesa do Consumidor, art. 49).</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kick">Perguntas frequentes</div>
+    <h2>Antes de comprar</h2>
+    <details><summary>Preciso instalar alguma coisa?</summary><p>Não. É um arquivo que abre no navegador do computador ou do celular. Cada aparelho guarda os seus dados; não há sincronização entre eles.</p></details>
+    <details><summary>Funciona com o Booking e com reserva direta?</summary><p>Sim. Importa o arquivo do Airbnb e do Booking, o calendário .ics e você lança reservas diretas à mão.</p></details>
+    <details><summary>Serve para mais de um imóvel?</summary><p>Sim. Você cadastra quantos imóveis quiser e o imposto soma tudo no seu CPF, como a Receita faz.</p></details>
+    <details><summary>O cálculo do imposto é oficial?</summary><p>É uma estimativa feita com as regras publicadas pela Receita Federal, com a fonte de cada regra no app. O valor oficial é sempre o do Carnê-Leão Web, e o Na Maré gera o arquivo para você importar lá.</p></details>
+    <details><summary>E se eu trocar de computador?</summary><p>Não há sincronização entre aparelhos. Exporte o backup em Ajustes e importe no outro. Os dados não saem do seu navegador sem você mandar.</p></details>
+    <details><summary>E se a tabela do imposto mudar?</summary><p>O app que você comprou continua funcionando, mas com as regras da data da compra. Para receber a tabela nova e as melhorias, assine as atualizações por R$ 15,90 por mês. Sem elas, confira sempre a regra vigente na Receita.</p></details>
+  </div>
+</section>
+
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <h2>R$ 69,90, uma vez só</h2>
+    <p class="sub" style="margin:0 auto 26px">Sem mensalidade, suporte por mensagem e garantia de 7 dias.</p>
+    <a class="btn js-comprar" href="#comprar" style="background:var(--deep);color:#fff">Quero o Na Maré</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">na <span style="color:var(--sol)">maré</span></div>
+    <p>Na Maré é uma ferramenta de organização. As estimativas de imposto não substituem a orientação de um contador. Airbnb e Booking.com são marcas de seus respectivos donos; o Na Maré não tem vínculo com essas empresas.</p>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.js-comprar').forEach(function(a){ if(window.KIWIFY&&window.KIWIFY.charAt(0)!=='#'){ a.href=window.KIWIFY; a.target='_blank'; a.rel='noopener'; } else { a.href='#planos'; } });
+</script>
+</body>
+</html>
